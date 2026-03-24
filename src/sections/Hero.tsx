@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Spline from "@splinetool/react-spline";
-import { ArrowRight, Download, User, Linkedin, Github, Mail, Code2, BrainCircuit, Terminal, Eye, X } from "lucide-react";
+import { ArrowRight, Download, User, Code2, BrainCircuit, Terminal, Eye, X } from "lucide-react";
+import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import ParticlesBackground from "../components/ParticlesBackground";
 import ScrollReveal from "../components/ScrollReveal";
 
 const SocialIcon = ({ icon: Icon, colorClass, shadowClass, href }: { icon: any, colorClass: string, shadowClass: string, href: string }) => (
-  <motion.a 
+  <motion.a
     whileHover={{ y: 4, scale: 0.98 }}
     whileTap={{ y: 8, scale: 0.95 }}
-    href={href} 
+    href={href}
     className={`relative w-12 h-13 rounded-2xl flex items-center justify-center text-white transition-all duration-200 ${colorClass} ${shadowClass} group overflow-visible`}
   >
     {/* Inner strong top reflection for 3D realism */}
@@ -33,12 +35,12 @@ export default function Hero() {
   return (
     <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-12 pb-12">
       <ParticlesBackground id="hero-particles" type="neural" />
-      
+
       {/* Home specific background */}
       <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
         <Spline scene="https://prod.spline.design/e8lxPKR20tErh2ni/scene.splinecode" />
       </div>
-      
+
       <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 h-full">
         {/* Left Column: Content */}
         <div className="flex-1 flex flex-col items-start text-left w-full lg:w-[45%] mt-10 lg:mt-0 relative z-10">
@@ -59,26 +61,26 @@ export default function Hero() {
 
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-12">
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#contact" 
+                href="#contact"
                 className="px-6 py-2.5 rounded-full bg-[#00ffff] text-black font-bold hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-shadow duration-300"
               >
                 Hire Me
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#about" 
+                href="#about"
                 className="px-6 py-2.5 rounded-full border border-[#00ffff] text-[#00ffff] font-medium hover:bg-[#00ffff]/10 hover:shadow-[0_0_15px_rgba(0,255,255,0.3)] transition-all duration-300 flex items-center gap-2"
               >
                 About me <ArrowRight className="w-4 h-4" />
               </motion.a>
-              <motion.a 
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#projects" 
+                href="#projects"
                 className="px-6 py-2.5 rounded-full border border-gray-600 text-gray-300 font-medium hover:bg-[#7c3aed]/10 hover:border-[#7c3aed] hover:text-white hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] transition-all duration-300 flex items-center gap-2"
               >
                 Previous Work <ArrowRight className="w-4 h-4" />
@@ -109,29 +111,29 @@ export default function Hero() {
 
               {/* Socials */}
               <div className="flex items-center gap-4 pb-2">
-                <SocialIcon 
-                  href="https://www.linkedin.com/in/varshan-kumar-chadaram/" 
-                  icon={Linkedin} 
-                  colorClass="bg-[#0077b5]" 
-                  shadowClass="shadow-[0_8px_0_#004d75] hover:shadow-[0_4px_0_#004d75] active:shadow-[0_0px_0_#004d75]" 
+                <SocialIcon
+                  href="https://www.linkedin.com/in/varshan-kumar-chadaram/"
+                  icon={FaLinkedinIn}
+                  colorClass="bg-[#0077b5]"
+                  shadowClass="shadow-[0_8px_0_#004d75] hover:shadow-[0_4px_0_#004d75] active:shadow-[0_0px_0_#004d75]"
                 />
-                <SocialIcon 
-                  href="https://github.com/VarshanKumar-05/Fake-News-Detector" 
-                  icon={Github} 
-                  colorClass="bg-[#24292e]" 
-                  shadowClass="shadow-[0_8px_0_#0d1117] hover:shadow-[0_4px_0_#0d1117] active:shadow-[0_0px_0_#0d1117]" 
+                <SocialIcon
+                  href="https://github.com/VarshanKumar-05"
+                  icon={FaGithub}
+                  colorClass="bg-[#24292e]"
+                  shadowClass="shadow-[0_8px_0_#0d1117] hover:shadow-[0_4px_0_#0d1117] active:shadow-[0_0px_0_#0d1117]"
                 />
-                <SocialIcon 
-                  href="https://leetcode.com/u/varshan2005/" 
-                  icon={Code2} 
-                  colorClass="bg-[#ffa116]" 
-                  shadowClass="shadow-[0_8px_0_#cc8112] hover:shadow-[0_4px_0_#cc8112] active:shadow-[0_0px_0_#cc8112]" 
+                <SocialIcon
+                  href="https://leetcode.com/u/varshan2005/"
+                  icon={SiLeetcode}
+                  colorClass="bg-[#ffa116]"
+                  shadowClass="shadow-[0_8px_0_#cc8112] hover:shadow-[0_4px_0_#cc8112] active:shadow-[0_0px_0_#cc8112]"
                 />
-                <SocialIcon 
-                  href="mailto:varshankumarchadaram@gmail.com" 
-                  icon={Mail} 
-                  colorClass="bg-gradient-to-tr from-[#ea4335] via-[#db4437] to-[#c5221f]" 
-                  shadowClass="shadow-[0_8px_0_#8e110d] hover:shadow-[0_4px_0_#8e110d] active:shadow-[0_0px_0_#8e110d]" 
+                <SocialIcon
+                  href="mailto:varshankumarchadaram@gmail.com"
+                  icon={FaEnvelope}
+                  colorClass="bg-gradient-to-tr from-[#ea4335] via-[#db4437] to-[#c5221f]"
+                  shadowClass="shadow-[0_8px_0_#8e110d] hover:shadow-[0_4px_0_#8e110d] active:shadow-[0_0px_0_#8e110d]"
                 />
               </div>
             </div>
@@ -144,7 +146,7 @@ export default function Hero() {
         </div>
 
         {/* Right Column: Circular Image & Floating Icons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -152,13 +154,13 @@ export default function Hero() {
         >
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-[#00ffff] shadow-[0_0_50px_rgba(0,255,255,0.2)] p-2">
             {/* Using a high-quality placeholder image for the profile */}
-            <img 
-              src="https://media.licdn.com/dms/image/v2/D5603AQGAwTeNR8SOhg/profile-displayphoto-scale_200_200/B56ZoUOX3hJQAY-/0/1761275905963?e=1775088000&v=beta&t=4lEjyil-WNxr9B6yvUTgheCDAKSWuhceObBTelgI2P0" 
-              alt="Varshan Kumar" 
-              className="w-full h-full object-cover rounded-full" 
-              referrerPolicy="no-referrer" 
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5603AQGAwTeNR8SOhg/profile-displayphoto-scale_200_200/B56ZoUOX3hJQAY-/0/1761275905963?e=1775088000&v=beta&t=4lEjyil-WNxr9B6yvUTgheCDAKSWuhceObBTelgI2P0"
+              alt="Varshan Kumar"
+              className="w-full h-full object-cover rounded-full"
+              referrerPolicy="no-referrer"
             />
-            
+
             {/* Floating Icons */}
             <FloatingIcon icon={Code2} className="top-10 -left-6" delay={0} />
             <FloatingIcon icon={BrainCircuit} className="bottom-20 -left-8" delay={1} />
@@ -169,14 +171,14 @@ export default function Hero() {
 
       <AnimatePresence>
         {showCV && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }} 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-black/80 backdrop-blur-md"
             onClick={() => setShowCV(false)}
           >
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.95, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0 }}
@@ -187,16 +189,16 @@ export default function Hero() {
                 <h3 className="text-white font-semibold flex items-center gap-2">
                   <User className="w-5 h-5 text-[#00ffff]" /> Varshan_CV.pdf
                 </h3>
-                <button 
+                <button
                   onClick={() => setShowCV(false)}
                   className="p-2 bg-white/10 rounded-full hover:bg-white/20 hover:text-[#ff0055] transition-colors text-white cursor-pointer group"
                 >
                   <X className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
                 </button>
               </div>
-              <iframe 
-                src="/certificates/Varshan.pdf" 
-                className="w-full flex-grow bg-white border-none" 
+              <iframe
+                src="/certificates/Varshan.pdf"
+                className="w-full flex-grow bg-white border-none"
                 title="CV Preview"
               />
             </motion.div>

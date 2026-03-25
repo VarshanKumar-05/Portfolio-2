@@ -23,7 +23,7 @@ const SocialIcon = ({ icon: Icon, colorClass, shadowClass, href }: { icon: any, 
 const FloatingIcon = ({ icon: Icon, className, delay }: { icon: any, className: string, delay: number }) => (
   <motion.div
     animate={{ y: [0, -10, 0] }}
-    transition={{ repeat: Infinity, duration: 3, delay, ease: "easeInOut" }}
+    transition={{ repeat: Infinity, duration: 1.5, delay, ease: "easeInOut" }}
     className={`absolute w-12 h-12 rounded-full border border-[#00ffff]/50 bg-[#0a0f1a]/80 backdrop-blur-sm flex items-center justify-center text-[#00ffff] shadow-[0_0_15px_rgba(0,255,255,0.2)] ${className}`}
   >
     <Icon className="w-5 h-5" />
@@ -47,7 +47,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 tracking-wide">
               Hi, I'm <span className="text-gradient font-mono font-black drop-shadow-[0_0_10px_rgba(0,255,255,0.3)]">Varshan Kumar</span>
@@ -149,16 +149,17 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="flex-1 w-full lg:w-[45%] flex justify-center lg:justify-end relative mt-16 lg:mt-0 z-10"
         >
           <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-[#00ffff] shadow-[0_0_50px_rgba(0,255,255,0.2)] p-2">
-            {/* Using a high-quality placeholder image for the profile */}
+            {/* Using the provided profile image */}
             <img
-              src="https://lh3.googleusercontent.com/rd-gg-dl/AOI_d_99gFSMvPvN05O2llqSpfI6ZyiqnW06Zkfm_TkW1Gk5eVlXCMTZD4CpiiCAWha4WYbQjXB3s-mrzqER6Uh0mAhhifOB0JzSMJhUo9V0vebRK1rurjeMFwC_YT8jcgmJcMX6dNoAz2_YGcCmTYtg1onuOFhsSgdC3Org4Zs19GKOBLiDpycduOkHFcGOLDM8iuqHH6me0eNBH-65eOBC7AJV30jVZcNtFLxUD6sdXPS7JZZaMKcQkRZ0nW9YKB38Zz-_jYN28dSshY2vkxX7ZvNr6b_Ads9wPbsJndEmFDSI648AMlHVsHx8xQXLlgFiNs2HAp8e0KuheOCZTbeHQMW3Cd69bwrJHZ2WG_g1k0d6zGwLCZUUgbbo6KDn4OXykZrB3zT8y659P-BNbDxBYQwvtupqjB8HxdSNRxJZJ6f_f5Y_pfM9PFSme44MNd2GBoTRA1KYzLg3NKa0X3ZzrVzfwoYxYwEmDp6Toe3su-OQuR4Mr6CeRbQgH74gHKi4HDpQc4PHsc0n9yAeaNuOm9cmYyTpSejajA8a42GeMM4rjcqEuLyRtPc9BZI4TsbFPL7SjA82MUvQ9YWGOnXKPixDmH3_L1gZP_0q83LPwM5kEoZPt0hzfQXKuo9T3XxtGdR4yPKIR4LPiCZMplRxJ05CinxxwkxFNfhvne4qWaTtqCPJBPGBj3Fsu0Kk0ZU5FWfzQlCdJ8iED7mJMZwpJeVo6BlGOKyPFy3YokjrZiu_LfbReAQGkGsKw9kB0hMMznsafQeAR5OST8pfztFOnn0iLoi1JY1lffYEVYsUPEd6j5a3C_6qNlT-NrHeztVw8bgnQFvaMh-EIqMKDm3koWmVHeE8YjOrHuBaU--O3pOLGYEm6yrdj2jx1sVFx0I0NBjtK_10qljkFf6Eq4dn0sSL0gK2LGgM-fLNNYcBJKkY2hmu9oxFafEKyZA4oYrIRhZp0mefBRpVe7YV9aqrURgX5NXDkbagtUXIY960yqxWk9mGVV-YbYtMpMscrfMQfFt-nAi9czlTHuchQJTKJRDYVRDpESO9EeDz-aUicVrWTWU735iumdKmxjptT_IJVgTSmTAQiiTPVrUKEPX0AmQwqqrHd_TEMVuXeoXxLX5_qgmQrgl513Ma3Xamv60xxkf5KcClkdyzNFBYaJRGrMH52so-SkGGJ9SyjMF8E2TdcvgQbYQlb_ZfJD0DSKqLu8jAayHydJ9mD9VvZbAa6w3q-ECW_N-HYFffyGdLuTTuxzxaEHPgS_Mj=s1024-rj"
+              src="/certificates/profile.webp"
               alt="Varshan Kumar"
               className="w-full h-full object-cover rounded-full"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
 
             {/* Floating Icons */}

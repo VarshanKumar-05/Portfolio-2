@@ -17,7 +17,7 @@ export default function GlowEdgeCard({ children, className }: { children: React.
       <div className="absolute inset-0 border border-white/5 rounded-2xl pointer-events-none group-hover:opacity-0 transition-opacity duration-300" />
       
       {/* Inner dark surface */}
-      <div className="relative h-full w-full bg-[#0a0f1a]/95 backdrop-blur-xl rounded-2xl p-6 z-10 border border-transparent shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+      <div className="relative h-full w-full bg-[#0a0f1a]/95 backdrop-blur-md rounded-2xl p-6 z-10 border border-transparent shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none rounded-inherit" />
         {children}
       </div>

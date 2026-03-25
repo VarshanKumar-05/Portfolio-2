@@ -11,7 +11,7 @@ const projects = [
     tags: ["C++", "Qt Framework", "DSA", "Node Graph"],
     link: "https://github.com/VarshanKumar-05/VisualProgramming", 
     github: "https://github.com/VarshanKumar-05/VisualProgramming",
-    image: "/visual_programming.png",
+    image: "/visual_programming.webp",
   },
   {
     title: "YOLO Smart Traffic System",
@@ -20,7 +20,7 @@ const projects = [
     tags: ["Python", "YOLO", "OpenCV", "Deep Learning"],
     link: "https://github.com/VarshanKumar-05/smart-traffic-management-system",
     github: "https://github.com/VarshanKumar-05/smart-traffic-management-system",
-    image: "/smart_traffic.png",
+    image: "/smart_traffic.webp",
   },
   {
     title: "Fake News Detector",
@@ -29,7 +29,7 @@ const projects = [
     tags: ["Python", "NLP", "Scikit-Learn", "Pandas"],
     link: "https://github.com/VarshanKumar-05/Fake-News-Detector",
     github: "https://github.com/VarshanKumar-05/Fake-News-Detector",
-    image: "/fake_news.png",
+    image: "/fake_news.webp",
   },
   {
     title: "Smart Authentication System",
@@ -38,7 +38,7 @@ const projects = [
     tags: ["Node.js", "React", "JWT", "Cybersecurity"],
     link: "",
     github: "",
-    image: "/smart_auth.png",
+    image: "/smart_auth.webp",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-4 mb-4">
@@ -87,7 +87,7 @@ export default function Projects() {
               initial={{ opacity: 0, y: 60, rotateX: -20, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               style={{ perspective: 1000 }}
               className="transform-gpu cursor-pointer"
               onClick={() => setSelectedProject(project)}
@@ -96,7 +96,7 @@ export default function Projects() {
                 
                 <motion.div layoutId={`image-${project.title}`} className="w-full h-48 sm:h-56 relative overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-[#00ffff]/20 mix-blend-overlay z-10 pointer-events-none" />
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transform-gpu group-hover:scale-110 transition-transform duration-700 ease-out" />
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transform-gpu group-hover:scale-110 transition-transform duration-700 ease-out" loading="lazy" />
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0a0f1a] to-transparent z-20 pointer-events-none" />
                 </motion.div>
                 
@@ -150,7 +150,7 @@ export default function Projects() {
                        <MonitorPlay className="w-5 h-5" /> Launch Demo
                      </motion.button>
                    )}
-                   <button onClick={closeDialog} className="bg-black/80 backdrop-blur-lg text-white p-3 rounded-full border border-white/20 hover:bg-white/10 hover:text-[#ff0055] transition-colors cursor-pointer group shadow-xl">
+                   <button onClick={closeDialog} className="bg-black/80 backdrop-blur-md text-white p-3 rounded-full border border-white/20 hover:bg-white/10 hover:text-[#ff0055] transition-colors cursor-pointer group shadow-xl">
                      <X className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" />
                    </button>
                 </div>
@@ -181,7 +181,7 @@ export default function Projects() {
                     <>
                       {/* Image Header */}
                       <motion.div layoutId={`image-${selectedProject.title}`} className="w-full h-[40vh] relative flex-shrink-0">
-                        <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                        <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" loading="lazy" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#050810] via-[#050810]/50 to-transparent opacity-100" />
                         <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-left z-20 pr-10">
                            <motion.h3 layoutId={`title-${selectedProject.title}`} className="text-4xl md:text-6xl font-black text-white mb-4 tracking-tight drop-shadow-2xl">{selectedProject.title}</motion.h3>

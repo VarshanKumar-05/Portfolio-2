@@ -76,10 +76,10 @@ export default function App() {
         <motion.nav
           initial={{ y: -100 }}
           animate={{ y: initialLoading ? -100 : 0 }}
-          transition={{ duration: 0.8, delay: initialLoading ? 0 : 0.5 }}
-          className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl"
+          transition={{ duration: 0.5, delay: initialLoading ? 0 : 0.5 }}
+          className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl will-change-transform"
         >
-          <div className="bg-white/5 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.37),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.2)] rounded-full px-6 py-3 flex items-center justify-between">
+          <div className="bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.37),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.2)] rounded-full px-6 py-3 flex items-center justify-between">
             {/* Logo */}
             <a href="#home" className="text-2xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-[#00ffff] to-teal-400 flex items-center gap-1 hover:opacity-80 transition-opacity">
               <span className="font-mono border border-[#00ffff] rounded-full w-8 h-8 flex items-center justify-center text-sm glow-primary">VK</span>
@@ -116,7 +116,7 @@ export default function App() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="fixed inset-0 z-40 bg-white/5 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.37),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-8 md:hidden"
+              className="fixed inset-0 z-40 bg-white/5 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.37),inset_0_1px_2px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center gap-8 md:hidden will-change-transform"
             >
               {navLinks.map((link) => (
                 <a

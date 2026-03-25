@@ -31,8 +31,8 @@ export default function About() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-6xl mx-auto transform-gpu"
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="max-w-6xl mx-auto transform-gpu will-change-transform"
         >
           <div className="flex items-center justify-center gap-4 mb-12">
             <BrainCircuit className="w-10 h-10 text-[#7c3aed]" />
@@ -48,13 +48,16 @@ export default function About() {
                 Background
               </h3>
               <p className="text-lg text-gray-300 leading-relaxed mb-6 font-light">
-                I am a Computer Science Engineering student specializing in Artificial Intelligence and Machine Learning, with a strong interest in developing intelligent and secure systems. I am passionate about applying AI techniques to solve real-world problems and improve system efficiency.
+                I’m a Computer Science student specializing in Artificial Intelligence and Machine Learning, with a strong passion for building intelligent and real-time systems. I enjoy turning complex problems into practical solutions using technologies like Python, computer vision, and modern web development.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed mb-6 font-light">
-                I have worked on projects in areas such as Machine Learning, Computer Vision, and Natural Language Processing. One of my key projects is a Smart OTP-based Authentication System, where I integrated Machine Learning with traditional security methods to detect suspicious login behavior and enhance user authentication.
+                I have hands-on experience developing projects such as a Real-Time Smart Traffic Management system using YOLO and OpenCV, where I worked on object detection, traffic analysis, and real-time data processing. I also explored game development by building a Flappy Bird clone, focusing on physics simulation and collision detection.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed mb-6 font-light">
+                My interests lie in AI, computer vision, and creating interactive web applications. I continuously work on improving my problem-solving skills through platforms like LeetCode and HackerRank, and I enjoy learning new technologies that push my limits.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed font-light">
-                I continuously strive to expand my knowledge in emerging technologies, improve my problem-solving skills, and build scalable, innovative solutions. My goal is to become a proficient AI/ML engineer and contribute to impactful technological advancements.
+                I aim to build innovative, efficient, and visually engaging solutions that solve real-world problems.
               </p>
             </GlassCard>
 

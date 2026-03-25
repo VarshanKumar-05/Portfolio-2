@@ -52,7 +52,7 @@ interface CursorState {
 
 export const MagneticCursor: FC<MagneticCursorProps> = ({
   children,
-  lerpAmount = 0.1,
+  lerpAmount = 0.5,
   magneticFactor = 0.2,
   hoverPadding = 12,
   hoverAttribute = 'data-magnetic',
@@ -205,8 +205,8 @@ export const MagneticCursor: FC<MagneticCursorProps> = ({
 
     const magneticElements = gsap.utils.toArray<HTMLElement>(`[${hoverAttribute}]`);
     magneticElements.forEach((el) => {
-      const xTo = gsap.quickTo(el, 'x', { duration: 1, ease: 'elastic.out(1, 0.3)' });
-      const yTo = gsap.quickTo(el, 'y', { duration: 1, ease: 'elastic.out(1, 0.3)' });
+      const xTo = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'elastic.out(1, 0.3)' });
+      const yTo = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'elastic.out(1, 0.3)' });
 
       const handlePointerEnter = () => {
         const state = cursorStateRef.current;

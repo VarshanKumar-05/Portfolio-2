@@ -8,7 +8,7 @@ const certifications = [
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle University",
     date: "March 08, 2026",
-    image: "/certificates/oracle-ai.png",
+    image: "/certificates/oracle-ai.webp",
     link: "https://catalog-education.oracle.com/apex/f?p=1010:2:102773301542302::::P2_AUTHCODE,P2_AUTH_KEY,P2_ARG_INVALID_CNT:EO276168PI36S,Qrskz276096Takh1163SPTp,0#",
     download: "/certificates/oracle-ai.pdf",
   },
@@ -16,7 +16,7 @@ const certifications = [
     title: "Oracle Data Platform 2025 Certified Foundations Associate",
     issuer: "Oracle University",
     date: "March 08, 2026",
-    image: "/certificates/oracle-data.png",
+    image: "/certificates/oracle-data.webp",
     link: "https://catalog-education.oracle.com/apex/f?p=1010:2:102773301542302::::P2_AUTHCODE,P2_AUTH_KEY,P2_ARG_INVALID_CNT:EO276168PI36S,Qrskz276096Takh1163SPTp,0#",
     download: "/certificates/oracle-data.pdf",
   },
@@ -24,7 +24,7 @@ const certifications = [
     title: "The Bits and Bytes of Computer Networking",
     issuer: "Google (Coursera)",
     date: "June 21, 2024",
-    image: "/certificates/networking.png",
+    image: "/certificates/networking.webp",
     link: "https://coursera.org/verify/5QTVMDQ3N9V9",
     download: "/certificates/networking.pdf",
   },
@@ -32,7 +32,7 @@ const certifications = [
   title: "AI & ML for Real-world Problem Solving",
   issuer: "Lovely Professional University",
   date: "August 13, 2025",
-  image: "/certificates/p.png",
+  image: "/certificates/p.webp",
   link: "https://files.lpu.in/umsweb/skilldevcourse/SkillDevelopmentCertificates/12326681_851_14_08_2025.pdf",
   download: "/certificates/p.pdf",
 },
@@ -72,7 +72,7 @@ export default function Certifications() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -88,7 +88,7 @@ export default function Certifications() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
               whileHover={{ y: -6 }}
               className="glass-panel p-6 flex flex-col hover:border-[#00ffff]/60 transition-all rounded-2xl transform-gpu"
             >
@@ -102,6 +102,7 @@ export default function Certifications() {
                   alt={cert.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                   <span className="text-white font-medium bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">View Certificate</span>
@@ -144,7 +145,7 @@ export default function Certifications() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-10"
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-10"
             onClick={closeLightbox}
           >
             {/* Close Button */}

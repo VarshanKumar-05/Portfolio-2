@@ -42,7 +42,7 @@ export default function ScrollReveal({
       rotateY: 0,
       scale: 1,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         delay,
         ease: [0.16, 1, 0.3, 1], // easeOutExpo
       },

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import Spline from "@splinetool/react-spline";
 import { ArrowRight, Download, User, Code2, BrainCircuit, Terminal, Eye, X } from "lucide-react";
 import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
@@ -32,13 +32,19 @@ const FloatingIcon = ({ icon: Icon, className, delay }: { icon: any, className: 
 
 export default function Hero() {
   const [showCV, setShowCV] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Only render heavy 3D Splines when the Hero section is actually visible!
+  // This saves massive GPU usage when the user scrolls down to other sections.
+  const isHeroInView = useInView(containerRef, { margin: "200px 0px 500px 0px" });
+
   return (
-    <section id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-12 pb-12">
+    <section ref={containerRef} id="home" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-12 pb-12">
       <ParticlesBackground id="hero-particles" type="neural" />
 
-      {/* Home specific background */}
-      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none">
-        <Spline scene="https://prod.spline.design/e8lxPKR20tErh2ni/scene.splinecode" />
+      {/* Home specific background (Restored!) */}
+      <div className="absolute inset-0 z-0 opacity-60 pointer-events-none transition-opacity duration-1000">
+        {isHeroInView && <Spline scene="https://prod.spline.design/e8lxPKR20tErh2ni/scene.splinecode" />}
       </div>
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 h-full">
@@ -141,8 +147,8 @@ export default function Hero() {
         </div>
 
         {/* Middle Column: Robot Spline */}
-        <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-auto z-0">
-          <Spline scene="https://prod.spline.design/XsM5ixmTunsJ4Xem/scene.splinecode" />
+        <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-auto z-0 transition-opacity duration-1000">
+          {isHeroInView && <Spline scene="https://prod.spline.design/XsM5ixmTunsJ4Xem/scene.splinecode" />}
         </div>
 
         {/* Right Column: Circular Image & Floating Icons */}

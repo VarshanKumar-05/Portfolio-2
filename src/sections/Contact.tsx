@@ -3,6 +3,7 @@ import GlassCard from "../components/GlassCard";
 import { Send, Mail, MapPin, Phone, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import BorderGlow from "../components/BorderGlow";
 import React, { useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -12,18 +13,28 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
 
-    // Simulate network latency for front-end visual effect
-    setTimeout(() => {
+    try {
+      await emailjs.sendForm(
+        'service_f15qeyh',
+        'template_ufdtxma',
+        e.currentTarget,
+        'zyZBglFT_bAaXNIVF'
+      );
+
       setStatus("success");
       setFormData({ name: "", email: "", message: "" });
       
       // Reset after 3 seconds
       setTimeout(() => setStatus("idle"), 3000);
-    }, 1500);
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
   
   return (
@@ -101,7 +112,7 @@ export default function Contact() {
                     <input
                       type="text"
                       id="name"
-                      name="name"
+                      name="from_name"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -114,7 +125,7 @@ export default function Contact() {
                     <input
                       type="email"
                       id="email"
-                      name="email"
+                      name="from_email"
                       value={formData.email}
                       onChange={handleChange}
                       required

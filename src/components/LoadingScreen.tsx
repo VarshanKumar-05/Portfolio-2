@@ -8,10 +8,10 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void, 
 
   useEffect(() => {
     // Stage triggers
-    const textTimer = setTimeout(() => setShowText(true), 800);
-    const completeTimer = setTimeout(onComplete, 10000); // 10 sec max
+    const textTimer = setTimeout(() => setShowText(true), 400);
+    const completeTimer = setTimeout(onComplete, 5000); // 5 sec max
 
-    const duration = 10000;
+    const duration = 5000;
     const intervalTime = 50;
     const steps = duration / intervalTime;
     let currentStep = 0;

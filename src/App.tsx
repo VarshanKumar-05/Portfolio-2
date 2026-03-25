@@ -1,14 +1,15 @@
 import { useState, useEffect, lazy, Suspense } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { MagneticCursor } from "./components/ui/magnetic-cursor";
 import LoadingScreen from "./components/LoadingScreen";
-import { Menu, X, Home, Folder, Trophy, Mail, User, Code2, Award, FileText } from "lucide-react";
+import { Menu, X, Home, Folder, Trophy, Mail, User, Code2, Award, FileText, GraduationCap } from "lucide-react";
 
 // Lazy load heavy components and sections
 const Spline = lazy(() => import('@splinetool/react-spline'));
 const Hero = lazy(() => import("./sections/Hero"));
 const About = lazy(() => import("./sections/About"));
 const Projects = lazy(() => import("./sections/Projects"));
+const Education = lazy(() => import("./sections/Education"));
 const Stats = lazy(() => import("./sections/Stats"));
 const Skills = lazy(() => import("./sections/Skills"));
 const Certifications = lazy(() => import("./sections/Certifications"));
@@ -18,16 +19,16 @@ const Contact = lazy(() => import("./sections/Contact"));
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [initialLoading, setInitialLoading] = useState(true);
+
+  // Eliminate React scroll jank by using native hardware-accelerated scroll tracking
+  const { scrollYProgress } = useScroll();
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 0.8]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      // Calculate scroll progress for blur effect (max blur after 100vh)
-      const progress = Math.min(window.scrollY / window.innerHeight, 1);
-      setScrollProgress(progress);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -40,7 +41,8 @@ export default function App() {
     { name: "Projects", href: "#projects", num: "04", icon: Folder },
     { name: "Certifications & Courses", href: "#certifications", num: "05", icon: Award },
     { name: "Stats", href: "#stats", num: "06", icon: Trophy },
-    { name: "Contact", href: "#contact", num: "07", icon: Mail },
+    { name: "Education", href: "#education", num: "07", icon: GraduationCap },
+    { name: "Contact", href: "#contact", num: "08", icon: Mail },
   ];
 
   return (
@@ -59,14 +61,12 @@ export default function App() {
         {/* Global Spline Background (Visible on scroll) */}
         {!initialLoading && (
           <Suspense fallback={null}>
-            <div 
-              className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-500"
-              style={{ 
-                opacity: Math.min(scrollProgress * 1.5, 0.8) 
-              }}
+            <motion.div 
+              className="fixed inset-0 z-0 pointer-events-none"
+              style={{ opacity: backgroundOpacity }}
             >
               <Spline scene="https://prod.spline.design/xH7xlDs4KJ2IM5FQ/scene.splinecode" />
-            </div>
+            </motion.div>
           </Suspense>
         )}
 
@@ -144,6 +144,7 @@ export default function App() {
               <Achievements />
               <Certifications />
               <Stats />
+              <Education />
               <Contact />
             </main>
           </Suspense>

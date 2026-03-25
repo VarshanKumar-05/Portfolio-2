@@ -11,7 +11,7 @@ const projects = [
     tags: ["C++", "Qt Framework", "DSA", "Node Graph"],
     link: "https://github.com/VarshanKumar-05/VisualProgramming", 
     github: "https://github.com/VarshanKumar-05/VisualProgramming",
-    image: "/visual_programming.webp",
+    image: "/visual_programming.png",
   },
   {
     title: "YOLO Smart Traffic System",
@@ -20,7 +20,7 @@ const projects = [
     tags: ["Python", "YOLO", "OpenCV", "Deep Learning"],
     link: "https://github.com/VarshanKumar-05/smart-traffic-management-system",
     github: "https://github.com/VarshanKumar-05/smart-traffic-management-system",
-    image: "/smart_traffic.webp",
+    image: "/smart_traffic.png",
   },
   {
     title: "Fake News Detector",
@@ -29,7 +29,7 @@ const projects = [
     tags: ["Python", "NLP", "Scikit-Learn", "Pandas"],
     link: "https://github.com/VarshanKumar-05/Fake-News-Detector",
     github: "https://github.com/VarshanKumar-05/Fake-News-Detector",
-    image: "/fake_news.webp",
+    image: "/fake_news.png",
   },
   {
     title: "Smart Authentication System",
@@ -38,7 +38,7 @@ const projects = [
     tags: ["Node.js", "React", "JWT", "Cybersecurity"],
     link: "",
     github: "",
-    image: "/smart_auth.webp",
+    image: "/smart_auth.png",
   },
 ];
 
@@ -116,6 +116,26 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+        {/* View More Projects Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-16 flex justify-center"
+        >
+          <a
+            href="https://github.com/VarshanKumar-05"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-[#00ffff]/50 transition-all shadow-[0_0_15px_rgba(0,255,255,0.05)] hover:shadow-[0_0_20px_rgba(0,255,255,0.2)] group"
+          >
+            <Github className="w-5 h-5 group-hover:text-[#00ffff] transition-colors" />
+            <span className="font-medium text-sm tracking-wide">View more projects on GitHub</span>
+            <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:text-[#00ffff] transition-all" />
+          </a>
+        </motion.div>
       </div>
 
       {/* EXPANDED MODAL OVERLAY */}

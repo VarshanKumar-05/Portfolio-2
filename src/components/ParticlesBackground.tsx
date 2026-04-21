@@ -33,8 +33,14 @@ export default function ParticlesBackground({ id, type = "neural" }: ParticlesBa
             opacity: { value: { min: 0.1, max: 0.5 } },
           },
           interactivity: {
-            events: { onHover: { enable: true, mode: "grab" } },
-            modes: { grab: { distance: 140, links: { opacity: 0.5 } } },
+            events: { 
+              onHover: { enable: true, mode: "grab" },
+              onClick: { enable: true, mode: "push" }
+            },
+            modes: { 
+              grab: { distance: 140, links: { opacity: 0.5 } },
+              push: { quantity: 4 }
+            },
           },
         };
       case "stars":

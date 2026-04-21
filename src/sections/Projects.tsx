@@ -90,9 +90,12 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
               style={{ perspective: 1000 }}
               className="transform-gpu cursor-pointer"
+              data-magnetic
               onClick={() => setSelectedProject(project)}
             >
-              <GlassCard glowColor="primary" className="h-[450px] flex flex-col p-0 border-t-0 border border-white/10 overflow-hidden bg-[#0a0f1a]/80 shadow-[0_0_30px_rgba(0,255,255,0.05)] hover:shadow-[0_0_40px_rgba(0,255,255,0.15)] transition-shadow duration-500 group">
+              <GlassCard glowColor="primary" className="h-[450px] flex flex-col p-0 border-t-0 border border-white/10 overflow-hidden bg-[#0a0f1a]/80 shadow-[0_0_30px_rgba(0,255,255,0.05)] hover:shadow-[0_0_40px_rgba(0,255,255,0.15)] transition-shadow duration-500 group relative">
+                {/* Glitch Overlay Effect */}
+                <div className="absolute inset-0 bg-[#00ffff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-100 mix-blend-overlay pointer-events-none z-40" />
                 
                 <motion.div layoutId={`image-${project.title}`} className="w-full h-48 sm:h-56 relative overflow-hidden flex-shrink-0">
                   <div className="absolute inset-0 bg-[#00ffff]/20 mix-blend-overlay z-10 pointer-events-none" />
@@ -101,7 +104,9 @@ export default function Projects() {
                 </motion.div>
                 
                 <div className="p-6 flex flex-col flex-grow relative z-30">
-                  <motion.h3 layoutId={`title-${project.title}`} className="text-2xl font-bold text-white mb-3 group-hover:text-[#00ffff] transition-colors">{project.title}</motion.h3>
+                  <motion.h3 layoutId={`title-${project.title}`} className="text-2xl font-bold text-white mb-3 group-hover:text-[#00ffff] transition-colors flex items-center gap-2">
+                    {project.title}
+                  </motion.h3>
                   <motion.p layoutId={`desc-${project.title}`} className="text-gray-400 mb-6 flex-grow font-light text-sm md:text-base line-clamp-3">{project.description}</motion.p>
                   
                   <motion.div layoutId={`tags-${project.title}`} className="flex flex-wrap gap-2 mt-auto">

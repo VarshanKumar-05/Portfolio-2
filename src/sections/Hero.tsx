@@ -12,6 +12,7 @@ const SocialIcon = ({ icon: Icon, colorClass, shadowClass, href }: { icon: any, 
     whileHover={{ y: 4, scale: 0.98 }}
     whileTap={{ y: 8, scale: 0.95 }}
     href={href}
+    data-magnetic
     className={`relative w-12 h-13 rounded-2xl flex items-center justify-center text-white transition-all duration-200 ${colorClass} ${shadowClass} group overflow-visible`}
   >
     {/* Inner strong top reflection for 3D realism */}
@@ -71,6 +72,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#contact"
+                data-magnetic
                 className="px-6 py-2.5 rounded-full bg-[#00ffff] text-black font-bold hover:shadow-[0_0_20px_rgba(0,255,255,0.6)] transition-shadow duration-300"
               >
                 Hire Me
@@ -79,6 +81,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#about"
+                data-magnetic
                 className="px-6 py-2.5 rounded-full border border-[#00ffff] text-[#00ffff] font-medium hover:bg-[#00ffff]/10 hover:shadow-[0_0_15px_rgba(0,255,255,0.3)] transition-all duration-300 flex items-center gap-2"
               >
                 About me <ArrowRight className="w-4 h-4" />
@@ -87,6 +90,7 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#projects"
+                data-magnetic
                 className="px-6 py-2.5 rounded-full border border-gray-600 text-gray-300 font-medium hover:bg-[#7c3aed]/10 hover:border-[#7c3aed] hover:text-white hover:shadow-[0_0_15px_rgba(124,58,237,0.3)] transition-all duration-300 flex items-center gap-2"
               >
                 Previous Work <ArrowRight className="w-4 h-4" />

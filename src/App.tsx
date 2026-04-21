@@ -3,6 +3,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { MagneticCursor } from "./components/ui/magnetic-cursor";
 import LoadingScreen from "./components/LoadingScreen";
 import { Menu, X, Home, Folder, Trophy, Mail, User, Code2, Award, FileText, GraduationCap } from "lucide-react";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy load heavy components and sections
 const Spline = lazy(() => import('@splinetool/react-spline'));
@@ -156,6 +157,8 @@ export default function App() {
             © {new Date().getFullYear()} Varshan Kumar. All rights reserved.
           </p>
         </footer>
+
+        <ScrollToTop />
       </div>
     </MagneticCursor>
   );
